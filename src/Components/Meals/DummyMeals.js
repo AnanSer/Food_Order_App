@@ -1,7 +1,3 @@
-import Card from "../UI/Card";
-
-import classes from "./AvailableMeals.module.css";
-
 const DUMMY_MEALS = [
   {
     id: "m1",
@@ -28,13 +24,3 @@ const DUMMY_MEALS = [
     price: 18.99,
   },
 ];
-
-const AvailableMeals = () => {
-  return (
-    <div className={classes.meals}>
-      <Card />
-    </div>
-  );
-};
-
-export default AvailableMeals;
