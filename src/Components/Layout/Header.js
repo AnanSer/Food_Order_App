@@ -4,6 +4,8 @@ import HeaderCartButton from "./HeaderCartButton";
 
 import MealsSummary from "../Meals/MealsSummary";
 
+import AvailableMeals from "../Meals/AvailableMeals";
+
 import classes from "./Header.module.css";
 
 import mealsImage from "../Assets/meals.jpg";
@@ -19,7 +21,9 @@ const Header = () => {
         <img src={mealsImage} alt="bunch of meals image" />
       </div>
 
-      {/* <MealsSummary /> */}
+      <MealsSummary />
+
+      <AvailableMeals />
     </Fragment>
   );
 };

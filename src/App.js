@@ -8,8 +8,6 @@ function App() {
   return (
     <Fragment>
       <Header />
-
-      <MealsSummary />
     </Fragment>
   );
 }
