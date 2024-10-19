@@ -20,10 +20,6 @@ const Header = () => {
       <div className={classes["main-image"]}>
         <img src={mealsImage} alt="bunch of meals image" />
       </div>
-
-      <MealsSummary />
-
-      <AvailableMeals />
     </Fragment>
   );
 };
