@@ -7,20 +7,20 @@ import classes from "./AvailableMeals.module.css";
 const DUMMY_MEALS = [
   {
     id: "m1",
-    name: "beyaynet",
+    name: "Beyaynet",
     description: "bunch of different wet",
     price: 90,
   },
   {
     id: "m2",
-    name: "keywet",
+    name: "Keywet",
     description: "meat wet with pepper",
     price: 150,
   },
   {
     id: "m3",
     name: "Shiro",
-    description: "special food of Ethiopian",
+    description: "Special food of Ethiopian",
     price: 70,
   },
   {
