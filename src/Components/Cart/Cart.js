@@ -6,12 +6,12 @@ const Cart = (props) => {
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {[{ id: "e1", name: "Beyaynet", amount: 2, price: 13 }].map((item) => (
-        <li>item.name</li>
+        <li>{item.name}</li>
       ))}
     </ul>
   );
   return (
-    <Modal className={classes["cart-items"]}>
+    <Modal>
       {cartItems}
 
       <div className={classes.total}>
@@ -19,7 +19,7 @@ const Cart = (props) => {
         <span>12.3</span>
       </div>
 
-      <div className={classes.action}>
+      <div className={classes.actions}>
         <button className={classes["button--alt"]}> Close</button>
         <button className={classes.button}> Order</button>
       </div>
