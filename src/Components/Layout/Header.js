@@ -2,10 +2,6 @@ import { Fragment } from "react";
 
 import HeaderCartButton from "./HeaderCartButton";
 
-import MealsSummary from "../Meals/MealsSummary";
-
-import AvailableMeals from "../Meals/AvailableMeals";
-
 import classes from "./Header.module.css";
 
 import mealsImage from "../Assets/meals.jpg";
