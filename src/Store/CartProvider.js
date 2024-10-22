@@ -5,14 +5,17 @@ const CartProvider = (props) => {
 
   const removeItemFromCartHandler = (id) => {};
 
-  const CartContext = {
+  const cartContext = {
     item: [],
-    total: 0,
+    totalAmount: 0,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
   };
-
-  <CartContext.Provider>{props.children}</CartContext.Provider>;
+  return (
+    <CartContex.Provider value={cartContext}>
+      {props.children}
+    </CartContex.Provider>
+  );
 };
 
 export default CartProvider;
