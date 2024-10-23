@@ -7,13 +7,13 @@ import classes from "./MealItem.module.css";
 const MealItem = (props) => {
   const price = `${props.price.toFixed(2)} Birr`;
 
-  const cardCtx = useContext(CartContext);
+  const cartCtx = useContext(CartContext);
 
   const addOnCartHandler = (amount) => {
-    cardCtx.addItem({
+    cartCtx.addItem({
       id: props.id,
       name: props.name,
-      amount: props.name,
+      amount: amount,
       price: props.price,
     });
   };
