@@ -1,37 +1,37 @@
+import { useEffect, useState } from "react";
 import Card from "../UI/Card";
 import MealItem from "./MealItem/MealItem";
 
 import classes from "./AvailableMeals.module.css";
 
-const DUMMY_MEALS = [
-  {
-    id: "m1",
-    name: "Beyaynet",
-    description: "bunch of different wet",
-    price: 90,
-  },
-  {
-    id: "m2",
-    name: "Keywet",
-    description: "meat wet with pepper",
-    price: 150,
-  },
-  {
-    id: "m3",
-    name: "Shiro",
-    description: "Special food of Ethiopian",
-    price: 70,
-  },
-  {
-    id: "m4",
-    name: "Pasta",
-    description: "Healthy...",
-    price: 70,
-  },
-];
-
 const AvailableMeals = () => {
-  const Meals = DUMMY_MEALS.map((meal) => (
+  const [meals, setMeals] = useState([]);
+
+  useEffect(() => {
+    const fetchMeals = async () => {
+      const response = await fetch(
+        "https://react-5-http-default-rtdb.firebaseio.com/meals.json"
+      );
+      const responseData = await response.json();
+
+      const loadedMeals = [];
+
+      for (const key in responseData) {
+        loadedMeals.push({
+          key: responseData[key].id,
+          name: responseData[key].name,
+          description: responseData[key].description,
+          price: responseData[key].price,
+        });
+      }
+
+      setMeals(loadedMeals);
+    };
+
+    fetchMeals();
+  }, []);
+
+  const Meals = meals.map((meal) => (
     <div>
       <MealItem
         key={meal.id}
