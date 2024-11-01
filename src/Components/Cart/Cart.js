@@ -34,6 +34,22 @@ const Cart = (props) => {
       ))}
     </ul>
   );
+
+  async function fetchFoodOrders(foods) {
+    const response = await fetch(
+      "https://react-5-http-default-rtdb.firebaseio.com/foods.json"
+    );
+    const data = await response.json();
+
+    const loadedFoods = [];
+
+    for (const key in data) {
+      loadedFoods.push({
+        key,
+      });
+    }
+  }
+
   return (
     <Modal onClose={props.onClose}>
       {cartItems}
