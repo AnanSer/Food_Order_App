@@ -26,6 +26,8 @@ const Cart = (props) => {
     setIsCheckout(true);
   };
 
+  const submitOrderHandler = (userData) => {};
+
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {cartCtx.items.map((item) => (
@@ -77,10 +79,12 @@ const Cart = (props) => {
 
       <div className={classes.total}>
         <span>total amount</span>
-        <span>{totalAmount}</span>
+        <span>{totalAmount} birr</span>
       </div>
 
-      {isCheckout && <Checkout onCancel={props.onClose} />}
+      {isCheckout && (
+        <Checkout onConfirm={submitOrderHandler} onCancel={props.onClose} />
+      )}
 
       {!isCheckout && modalAction}
     </Modal>
