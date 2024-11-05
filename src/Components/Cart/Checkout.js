@@ -89,8 +89,9 @@ const Checkout = (props) => {
       <div className={postalControlClasses}>
         <label htmlFor="postal">Postal Code</label>
         <input type="text" id="postal" ref={postalCodeInputRef} />
+
         {!formInputsValidity.postalCode && (
-          <p>please enter a valid Postal Code!</p>
+          <p>Please enter a valid postal code (5 characters long)!</p> // Improved message
         )}
       </div>
 
@@ -101,7 +102,7 @@ const Checkout = (props) => {
       </div>
 
       <div
-        className={`${classes.submit} ${
+        className={`${classes.actions} ${
           formInputsValidity.name ? "" : classes.invalid
         }`}
       >
