@@ -23,18 +23,18 @@ const Checkout = (props) => {
 
     const enteredName = nameInputRef.current.value;
     const enteredStreet = streetInputRef.current.value;
-    const enteredpostalCode = postalCodeInputRef.current.value;
+    const enteredPostalCode = postalCodeInputRef.current.value;
     const enteredCity = cityInputRef.current.value;
 
     const enteredNameIsValid = !isEmpty(enteredName);
     const enteredStreetIsValid = !isEmpty(enteredStreet);
     const enteredCityIsValid = !isEmpty(enteredCity);
-    const enteredPostalCodeIsValid = isFiveCars(enteredpostalCode);
+    const enteredPostalCodeIsValid = isFiveCars(enteredPostalCode);
 
     setFormInputsValidity({
       name: enteredNameIsValid,
       street: enteredStreetIsValid,
-      City: enteredCityIsValid,
+      city: enteredCityIsValid,
       postalCode: enteredPostalCodeIsValid,
     });
 
@@ -47,6 +47,13 @@ const Checkout = (props) => {
     if (!formValid) {
       return;
     }
+
+    props.onConfirm({
+      name: enteredName,
+      street: enteredStreet,
+      city: enteredCity,
+      postalCode: enteredPostalCode,
+    });
   };
 
   const nameControlClasses = `${classes.control} ${
@@ -69,28 +76,28 @@ const Checkout = (props) => {
     <form className={classes.form} onSubmit={confirmHandler}>
       <div className={nameControlClasses}>
         <label htmlFor="name">Your Name</label>
-        <input type="text" id="name" useRef={nameInputRef} />
-        {formInputsValidity.name && <p>please enter a valid name!</p>}
+        <input type="text" id="name" ref={nameInputRef} />
+        {!formInputsValidity.name && <p>please enter a valid name!</p>}
       </div>
 
       <div className={streetControlClasses}>
         <label htmlFor="street">Street</label>
-        <input type="text" id="street" useRef={streetInputRef} />
-        {formInputsValidity.street && <p>please enter a valid Street!</p>}
+        <input type="text" id="street" ref={streetInputRef} />
+        {!formInputsValidity.street && <p>please enter a valid Street!</p>}
       </div>
 
       <div className={postalControlClasses}>
         <label htmlFor="postal">Postal Code</label>
-        <input type="text" id="postal" useRef={postalCodeInputRef} />
-        {formInputsValidity.postalCode && (
+        <input type="text" id="postal" ref={postalCodeInputRef} />
+        {!formInputsValidity.postalCode && (
           <p>please enter a valid Postal Code!</p>
         )}
       </div>
 
       <div className={cityControlClasses}>
         <label htmlFor="city">City</label>
-        <input type="text" id="city" useRef={cityInputRef} />
-        {formInputsValidity.city && <p>please enter a valid City!</p>}
+        <input type="text" id="city" ref={cityInputRef} />
+        {!formInputsValidity.city && <p>please enter a valid City!</p>}
       </div>
 
       <div
